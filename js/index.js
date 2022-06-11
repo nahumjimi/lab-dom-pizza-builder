@@ -83,12 +83,16 @@ function renderGlutenFreeCrust() {
 }
 
 function renderButtons() {
+  // chicos hay que hacer un queryselector por cada uno de los botones verificando los states de los botones LQM
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
+  const buttonClasses = document.querySelectorAll('.btn ')
+  for(button of buttonClasses){
+    if(state.button){
+      button.classList.toggle('active')
+    }
+  }
+  }
 
-  document.querySelectorAll('.btn').forEach ((btn) => {
-    btn.classList.toggle('active')
-  })
-}
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
@@ -126,8 +130,6 @@ document.querySelector('.btn.btn-sauce').addEventListener('click', function () {
 
 
 // Iteration 2: Add click event listener on `<button class="btn btn-crust">`
-
-
 document.querySelector('.btn.btn-crust').addEventListener('click', function () {
   state.glutenFreeCrust = !state.glutenFreeCrust;
   renderEverything();
