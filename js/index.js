@@ -78,17 +78,16 @@ function renderWhiteSauce() {
 
 function renderGlutenFreeCrust() {
   // Iteration 2: add/remove the class "crust-gluten-free" of `<section class="crust">`
-  document.querySelectorAll('.crust-gluten-free').forEach((gCrust) => {
-    if(state.glutenFreeCruse) {
-      gCrust.style.visibility = 'visible';
-    } else {
-      gCrust.style.visibility = 'hidden'
-    }
-  })
+  const gCrust = document.querySelector('.crust')
+  gCrust.classList.toggle('crust-gluten-free')
 }
 
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
+
+  document.querySelectorAll('.btn').forEach ((btn) => {
+    btn.classList.toggle('active')
+  })
 }
 
 function renderPrice() {
